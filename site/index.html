@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build With Stellar + AI</title>
+  <meta name="description" content="Workshop en Cochabamba: herramientas de IA para construir sobre Stellar con gentle-ai, la CLI, Stellar Skills y MCP. Comandos y prompts listos para copiar.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Build With Stellar + AI">
+  <meta property="og:description" content="Herramientas de IA para construir sobre Stellar: gentle-ai, CLI, Skills y MCP. Antesala del National Startups Hackathon by Stellar.">
+  <meta property="og:url" content="https://tomoki977.github.io/stellarworkshop/">
+  <meta name="theme-color" content="#111014">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23FDDA24'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<main id="deck">
+
+  <!-- 1. Cover -->
+  <section id="cover" class="slide dark" aria-labelledby="cover-title">
+    <div class="split">
+      <div class="split-main">
+        <p class="eyebrow reveal">WORKSHOP · COCHABAMBA · 13 NOV 2026</p>
+        <h1 id="cover-title" class="reveal">Build With <span class="hl">Stellar</span> + AI</h1>
+        <p class="lead reveal">Herramientas de IA para construir sobre Stellar: gentle-ai, CLI, Skills y MCP.</p>
+      </div>
+      <figure class="qr qr-lg reveal">
+        <img src="qr/site.svg" alt="Código QR hacia https://tomoki977.github.io/stellarworkshop/" aria-label="Código QR hacia el sitio del workshop" width="280" height="280">
+        <figcaption>Escanea y sigue la presentación en tu celular</figcaption>
+      </figure>
+    </div>
+    <footer class="foot">
+      <p>Antesala · National Startups Hackathon by Stellar</p>
+      <p>CochaBlock · Stellar Bolivia</p>
+    </footer>
+  </section>
+
+  <!-- 2. About -->
+  <section id="quien" class="slide light" aria-labelledby="quien-title">
+    <div class="split">
+      <div class="split-main">
+        <p class="eyebrow reveal">QUIÉN SOY</p>
+        <h2 id="quien-title" class="reveal">Julio César Severiche</h2>
+        <div class="cards cards-2">
+          <article class="card reveal">
+            <p class="num">STELLAR</p>
+            <h3>Embajador de Stellar en Bolivia</h3>
+          </article>
+          <article class="card reveal">
+            <p class="num">PULS3</p>
+            <h3>Co-Founder &amp; CEO de Puls3</h3>
+            <p class="body">Un hub de agentes de IA sobre Stellar.</p>
+          </article>
+        </div>
+      </div>
+      <figure class="qr reveal">
+        <img src="qr/linktree.svg" alt="Código QR hacia https://linktr.ee/tomoki977" aria-label="Código QR hacia linktr.ee/tomoki977" width="220" height="220">
+        <figcaption><a href="https://linktr.ee/tomoki977">linktr.ee/tomoki977</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 3. Stack -->
+  <section id="stack" class="slide dark" aria-labelledby="stack-title">
+    <p class="eyebrow reveal">EL STACK</p>
+    <h2 id="stack-title" class="reveal">Tu kit de IA para construir sobre Stellar</h2>
+    <div class="cards cards-5">
+      <article class="card reveal">
+        <p class="num">01 · AGENTE</p>
+        <h3>gentle-ai</h3>
+        <p class="body">Prepara tu agente: memoria, skills y flujo de trabajo.</p>
+      </article>
+      <article class="card reveal">
+        <p class="num">02 · CLI</p>
+        <h3><code>stellar</code></h3>
+        <p class="body">Crea cuentas, compila y despliega contratos desde la terminal.</p>
+      </article>
+      <article class="card reveal">
+        <p class="num">03 · SKILLS</p>
+        <h3>Stellar Skills</h3>
+        <p class="body">Le dan a tu agente el contexto de Stellar antes de escribir código.</p>
+      </article>
+      <article class="card reveal">
+        <p class="num">04 · MCP</p>
+        <h3>Docs + Raven</h3>
+        <p class="body">Conectan tu agente a la documentación y a datos vivos del ecosistema.</p>
+      </article>
+      <article class="card reveal">
+        <p class="num">05 · CONTEXTO</p>
+        <h3>llms.txt</h3>
+        <p class="body">La documentación lista para pegar en cualquier chat de IA.</p>
+      </article>
+    </div>
+    <div class="pattern reveal">
+      <p><span class="tag tag-manual">Sin IA</span> Tú escribes los comandos.</p>
+      <p><span class="tag tag-ai">Con IA</span> Le das un prompt a tu agente y él ejecuta.</p>
+    </div>
+    <p class="lead reveal"><span class="hl">Tú diriges, la IA ejecuta.</span> Pero tienes que saber qué pedirle y cuándo se equivoca.</p>
+  </section>
+
+  <!-- 4. gentle-ai -->
+  <section id="gentle-ai" class="slide light" aria-labelledby="gentle-ai-title">
+    <header class="step-head">
+      <div>
+        <p class="eyebrow reveal">PASO 0</p>
+        <h2 id="gentle-ai-title" class="reveal">Prepara tu agente con gentle-ai</h2>
+        <p class="lead reveal">gentle-ai configura el agente que ya usas (Claude Code, Codex, Cursor, OpenCode, Gemini CLI y más) con memoria persistente (Engram), skills, MCP y un flujo de trabajo ordenado.</p>
+      </div>
+      <figure class="qr qr-sm qr-deep reveal">
+        <img src="qr/gentle-ai.svg" alt="Código QR hacia https://tomoki977.github.io/stellarworkshop/#gentle-ai" aria-label="Código QR hacia esta diapositiva" width="150" height="150">
+        <figcaption>Escanea para copiar</figcaption>
+      </figure>
+    </header>
+    <div class="compare">
+      <div class="block reveal">
+        <div class="block-head"><span class="tag tag-manual">Sin IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code># macOS
+brew install gentleman-programming/tap/gentle-ai
+# macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/Gentleman-Programming/gentle-ai/main/scripts/install.sh | bash
+# Windows (requiere Go 1.25.10+)
+go install github.com/gentleman-programming/gentle-ai/v4/cmd/gentle-ai@v4.1.1
+
+gentle-ai          # elige agentes, componentes y persona
+gentle-ai doctor   # verifica la instalación</code></pre>
+      </div>
+      <div class="block block-prompt reveal">
+        <div class="block-head"><span class="tag tag-ai">Con IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code>Instala gentle-ai en mi sistema siguiendo el README oficial de https://github.com/Gentleman-Programming/gentle-ai. Antes de ejecutar cada comando, muéstramelo y explícame qué hace. Al final ejecuta `gentle-ai doctor` y resúmeme qué quedó configurado.</code></pre>
+        <p class="note">El asistente <code>gentle-ai</code> es interactivo: ejecútalo tú en tu terminal para elegir tu agente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Stellar CLI -->
+  <section id="cli" class="slide dark" aria-labelledby="cli-title">
+    <header class="step-head">
+      <div>
+        <p class="eyebrow reveal">PASO 1</p>
+        <h2 id="cli-title" class="reveal">Stellar CLI: de cero a testnet</h2>
+      </div>
+      <figure class="qr qr-sm qr-deep reveal">
+        <img src="qr/cli.svg" alt="Código QR hacia https://tomoki977.github.io/stellarworkshop/#cli" aria-label="Código QR hacia esta diapositiva" width="150" height="150">
+        <figcaption>Escanea para copiar</figcaption>
+      </figure>
+    </header>
+    <div class="compare">
+      <div class="block reveal">
+        <div class="block-head"><span class="tag tag-manual">Sin IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code># Instalar
+winget install --id Stellar.StellarCLI      # Windows
+brew install stellar-cli                     # macOS / Linux
+rustup target add wasm32v1-none              # Rust para contratos
+
+# Primer contrato
+stellar keys generate alice --network testnet --fund
+stellar contract init soroban-hello-world
+cd soroban-hello-world
+stellar contract build
+stellar contract deploy --wasm target/wasm32v1-none/release/hello_world.wasm --source-account alice --network testnet --alias hello_world
+stellar contract invoke --id hello_world --source-account alice --network testnet -- hello --to RPC</code></pre>
+      </div>
+      <div class="block block-prompt reveal">
+        <div class="block-head"><span class="tag tag-ai">Con IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code>Instala la Stellar CLI y el target de Rust wasm32v1-none en mi sistema. Luego crea una cuenta de testnet llamada alice con fondos, inicia el proyecto soroban-hello-world, compílalo, despliégalo en testnet con el alias hello_world e invoca la función hello con el argumento RPC. Muéstrame cada comando antes de ejecutarlo y explícame el resultado.</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Stellar Skills -->
+  <section id="skills" class="slide light" aria-labelledby="skills-title">
+    <header class="step-head">
+      <div>
+        <p class="eyebrow reveal">PASO 2</p>
+        <h2 id="skills-title" class="reveal">Stellar Skills: contexto antes del código</h2>
+        <p class="lead reveal">Una skill le da al agente el contexto correcto de Stellar antes de escribir código.</p>
+      </div>
+      <figure class="qr qr-sm qr-deep reveal">
+        <img src="qr/skills.svg" alt="Código QR hacia https://tomoki977.github.io/stellarworkshop/#skills" aria-label="Código QR hacia esta diapositiva" width="150" height="150">
+        <figcaption>Escanea para copiar</figcaption>
+      </figure>
+    </header>
+    <ul class="chips reveal" aria-label="Skills oficiales">
+      <li class="chip">Smart Contracts</li>
+      <li class="chip">Frontend &amp; Wallets</li>
+      <li class="chip">Assets &amp; SAC</li>
+      <li class="chip">RPC &amp; Horizon</li>
+      <li class="chip chip-hl">Agent Payments (x402 + MPP)</li>
+      <li class="chip">ZK Proofs</li>
+      <li class="chip">SEPs &amp; CAPs</li>
+      <li class="chip">Cross-Chain</li>
+    </ul>
+    <div class="compare">
+      <div class="block reveal">
+        <div class="block-head"><span class="tag tag-manual">Sin IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code># Claude Code (escríbelo dentro del agente)
+/plugin marketplace add stellar/stellar-dev-skill
+/plugin install stellar-dev@stellar-dev
+
+# Codex, Cursor, VS Code y otros
+npx skills add https://github.com/stellar/stellar-dev-skill</code></pre>
+      </div>
+      <div class="block block-prompt reveal">
+        <div class="block-head"><span class="tag tag-ai">Con IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code>Instala las Stellar Skills oficiales de https://github.com/stellar/stellar-dev-skill en este agente usando el método que recomienda skills.stellar.org. Cuando termines, lista las skills que quedaron disponibles y dime para qué sirve cada una.</code></pre>
+      </div>
+    </div>
+    <p class="note reveal">Las skills de la comunidad no las revisa la SDF: léelas antes de instalarlas. Más en <a href="https://skills.stellar.org">skills.stellar.org</a>.</p>
+  </section>
+
+  <!-- 7. MCP -->
+  <section id="mcp" class="slide dark" aria-labelledby="mcp-title">
+    <header class="step-head">
+      <div>
+        <p class="eyebrow reveal">PASO 3</p>
+        <h2 id="mcp-title" class="reveal">MCP: conecta tu agente a Stellar</h2>
+        <div class="servers reveal">
+          <p><strong>Stellar Docs MCP</strong> · documentación oficial, sin login.</p>
+          <p><strong>Raven</strong> · docs y datos vivos del ecosistema, herramientas <code>search</code> y <code>execute</code>, login con OAuth.</p>
+        </div>
+      </div>
+      <figure class="qr qr-sm qr-deep reveal">
+        <img src="qr/mcp.svg" alt="Código QR hacia https://tomoki977.github.io/stellarworkshop/#mcp" aria-label="Código QR hacia esta diapositiva" width="150" height="150">
+        <figcaption>Escanea para copiar</figcaption>
+      </figure>
+    </header>
+    <div class="compare">
+      <div class="block reveal">
+        <div class="block-head"><span class="tag tag-manual">Sin IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code># Claude Code
+claude mcp add --transport http --scope user stellar-docs https://developers.stellar.org/mcp
+claude mcp add --transport http stellar-raven https://raven.stellar.org/mcp
+# luego, dentro del agente: /mcp → Authenticate (Raven)
+
+# Codex
+codex mcp add stellar-docs --url https://developers.stellar.org/mcp
+codex mcp add stellar-raven --url https://raven.stellar.org/mcp
+codex mcp login stellar-raven</code></pre>
+      </div>
+      <div class="block block-prompt reveal">
+        <div class="block-head"><span class="tag tag-ai">Con IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code>Agrega a la configuración de mi agente dos servidores MCP de Stellar: Stellar Docs (https://developers.stellar.org/mcp, sin login) a nivel de usuario, y Raven (https://raven.stellar.org/mcp). Verifica que ambos aparezcan conectados y dime cómo completo el login de Raven.</code></pre>
+      </div>
+    </div>
+    <p class="note reveal">Plan B: ¿tu herramienta no soporta MCP? Pega <a href="https://developers.stellar.org/llms.txt">https://developers.stellar.org/llms.txt</a> en el chat.</p>
+  </section>
+
+  <!-- 8. Demo -->
+  <section id="demo" class="slide light" aria-labelledby="demo-title">
+    <header class="step-head">
+      <div>
+        <p class="eyebrow reveal">MANOS A LA OBRA</p>
+        <h2 id="demo-title" class="reveal">De la idea a testnet</h2>
+      </div>
+      <figure class="qr qr-sm qr-deep reveal">
+        <img src="qr/demo.svg" alt="Código QR hacia https://tomoki977.github.io/stellarworkshop/#demo" aria-label="Código QR hacia esta diapositiva" width="150" height="150">
+        <figcaption>Escanea para copiar</figcaption>
+      </figure>
+    </header>
+    <div class="compare">
+      <div class="block reveal">
+        <div class="block-head"><span class="tag tag-manual">Sin IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code>stellar contract init propinas
+cd propinas
+# escribe el contrato en Rust en contracts/hello-world/src/lib.rs
+cargo test
+stellar contract build
+stellar contract deploy --wasm target/wasm32v1-none/release/hello_world.wasm --source-account alice --network testnet --alias propinas</code></pre>
+      </div>
+      <div class="block block-prompt reveal">
+        <div class="block-head"><span class="tag tag-ai">Con IA</span><button class="copy" type="button">Copiar</button></div>
+        <pre><code>Usa las Stellar Skills y el MCP de Stellar Docs. Crea un contrato Soroban de propinas: cualquier cuenta puede enviar propinas en un token a un creador y el creador puede retirarlas. Escribe tests, ejecútalos, compila el contrato y despliégalo en testnet con la CLI usando la cuenta alice y el alias propinas. Detente y muéstrame el código antes de desplegar.</code></pre>
+      </div>
+    </div>
+    <ol class="steps reveal">
+      <li><span class="num">01</span><strong>Skill</strong><span>Patrones correctos de Soroban</span></li>
+      <li><span class="num">02</span><strong>MCP</strong><span>Documentación vigente</span></li>
+      <li><span class="num">03</span><strong>CLI</strong><span>Tests y compilación</span></li>
+      <li><span class="num">04</span><strong>Testnet</strong><span>Despliegue y contract ID</span></li>
+    </ol>
+    <p class="lead reveal"><strong>Tú revisas cada paso:</strong> la IA propone, tú decides.</p>
+  </section>
+
+  <!-- 9. Hackathon -->
+  <section id="hackathon" class="slide sun" aria-labelledby="hackathon-title">
+    <p class="eyebrow reveal">NATIONAL STARTUPS HACKATHON BY STELLAR</p>
+    <h2 id="hackathon-title" class="reveal">Dos semanas para construir tu MVP</h2>
+    <div class="facts">
+      <div class="fact reveal">
+        <p class="fact-big">9–22 nov</p>
+        <p class="body">Construcción online, desde cualquier parte de Bolivia.</p>
+      </div>
+      <div class="fact reveal">
+        <p class="fact-big">27 nov</p>
+        <p class="body">Final presencial en Santa Cruz, con becas de viaje para finalistas.</p>
+      </div>
+      <div class="fact reveal">
+        <p class="fact-big">5.000 USDC</p>
+        <p class="body">Hasta ese monto para cada una de las dos mejores startups.</p>
+      </div>
+    </div>
+    <p class="lead reveal"><strong>Consejo:</strong> empieza en testnet, haz commits pequeños y llega con una demo que funcione.</p>
+  </section>
+
+  <!-- 10. Thanks -->
+  <section id="gracias" class="slide dark" aria-labelledby="gracias-title">
+    <div class="split">
+      <div class="split-main">
+        <p class="eyebrow reveal">GRACIAS</p>
+        <h1 id="gracias-title" class="reveal">¡Gracias!</h1>
+        <p class="lead reveal">Preguntas, networking y manos a la obra.</p>
+        <ul class="links reveal">
+          <li><a href="https://skills.stellar.org">skills.stellar.org</a></li>
+          <li><a href="https://developers.stellar.org/mcp">developers.stellar.org/mcp</a></li>
+          <li><a href="https://raven.stellar.org">raven.stellar.org</a></li>
+          <li><a href="https://developers.stellar.org/llms.txt">developers.stellar.org/llms.txt</a></li>
+          <li><a href="https://github.com/Gentleman-Programming/gentle-ai">github.com/Gentleman-Programming/gentle-ai</a></li>
+          <li><a href="https://github.com/TOMOKI977/stellarworkshop">github.com/TOMOKI977/stellarworkshop</a></li>
+        </ul>
+      </div>
+      <div class="qr-pair">
+        <figure class="qr reveal">
+          <img src="qr/linktree.svg" alt="Código QR hacia https://linktr.ee/tomoki977" aria-label="Código QR hacia linktr.ee/tomoki977" width="200" height="200">
+          <figcaption>linktr.ee/tomoki977</figcaption>
+        </figure>
+        <figure class="qr reveal">
+          <img src="qr/repo.svg" alt="Código QR hacia https://github.com/TOMOKI977/stellarworkshop" aria-label="Código QR hacia el repositorio del workshop" width="200" height="200">
+          <figcaption>Repositorio</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<p class="counter" aria-live="polite"><span id="counter-current">1</span> / <span id="counter-total">10</span></p>
+
+<script src="app.js"></script>
+</body>
+</html>
