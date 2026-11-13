@@ -25,10 +25,10 @@ Turn the "Build With Stellar + AI" talk (Cochabamba, 2026-11-13) into a static w
 
 ## Tasks
 - [x] T1 Repo scaffold: git init, feature branch, this document, `.gitignore`. Route: inline (mechanical).
-- [ ] T2 Content source: `commands/*.md` and `prompts/*.md` per step (sin IA / con IA). Route: delegated writer (2+ non-trivial files).
-- [ ] T3 Site: `site/index.html`, `site/styles.css`, `site/app.js` — keyboard slide mode on desktop, scroll + copy buttons on mobile, deep links `#<slide-id>`. Route: delegated writer.
-- [ ] T4 QR: `scripts/gen_qr.py` generating `site/qr/*.svg` per slide deep link + linktree. Route: delegated writer.
-- [ ] T5 Pages workflow + README with run/deploy instructions. Route: delegated writer.
+- [x] T2 Content source: `commands/*.md` and `prompts/*.md` per step (sin IA / con IA). Route: delegated writer (2+ non-trivial files). Commit `ae91a88`.
+- [x] T3 Site: `site/index.html`, `site/styles.css`, `site/app.js` — keyboard slide mode on desktop, scroll + copy buttons on mobile, deep links `#<slide-id>`. Route: delegated writer. Commit `05a4f96`.
+- [x] T4 QR: `scripts/gen_qr.py` generating `site/qr/*.svg` per slide deep link + linktree. Route: delegated writer. Commit `f709b5e`.
+- [x] T5 Pages workflow + README with run/deploy instructions. Route: delegated writer. Commits `2ac38cf` (workflow + `scripts/check-site.mjs`), `3118d6d` (README).
 
 ## Acceptance criteria
 - Opening `site/index.html` shows slides navigable with arrow keys; on a phone it scrolls with readable sections.
@@ -40,7 +40,11 @@ Turn the "Build With Stellar + AI" talk (Cochabamba, 2026-11-13) into a static w
 - Test-first exception: static site with no runnable behavioral test runner; proportional structural checks instead (`python scripts/gen_qr.py`, `node scripts/check-site.mjs`).
 
 ## Progress / Evidence
-- T1: done in commit (see git log).
+- T1: done in commit `643657d`.
+- T2: `ae91a88`. Prompts and commands copied verbatim from the brief; voseo scan (`rg` for vos/tenés/podés…) found none.
+- T3: `05a4f96`. `node --check site/app.js` OK; voseo scan clean.
+- T4: `f709b5e`. `python -I scripts/gen_qr.py` wrote 8 SVGs (site, linktree, repo, gentle-ai, cli, skills, mcp, demo). Every SVG was rasterized and decoded with OpenCV's `QRCodeDetector`; all 8 decode to their expected URLs.
+- T5: `2ac38cf`, `3118d6d`. `node scripts/check-site.mjs` → `OK: 46 checks`. Negative test: altering the demo prompt in `index.html` → `FAIL: 1 of 46 checks failed` (exit 1), then restored.
 
 ## Next step
-T2–T5 via one delegated writer.
+All tasks done. Push `feat/workshop-site`/`main`, create the GitHub repo and enable Pages (Source: GitHub Actions): user's decision. Optional: visual check of the deck on a projector and a phone.
